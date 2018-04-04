@@ -15,7 +15,7 @@ LABEL com.container.vendor="yarche" \
       com.container.service="jokersoft/service/jenkins/php" \
       com.container.priority="1" \
       com.container.project="jokersoft-service-jenkins-php-slave" \
-      img.version="0.9.6" \
+      img.version="0.0.1" \
       img.name="local/jokersoft/service/jenkins/slave/php/7" \
       img.description="jenkins ci slave service (jnlp) image for dynamic slave build using kubernetes"
 
