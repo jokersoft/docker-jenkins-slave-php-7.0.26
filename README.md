@@ -10,11 +10,9 @@ Based on https://github.com/dunkelfrosch/docker-jenkins-slave-php-7
 This repository will hold our jnlp slave docker image for php 7.0.26 related CI processes and will be part of our kubernetes jenkins cluster experimental workload. Use this image for all php related build processes you want to call inside our gcloud kubernetes cluster jenkins definition.
 There will be additional images available soon to fulfill additional build requirements (e.g. other php versions or other language builds like python, go, erlang etc). This Repository based on two open source images [docker-hub/php:7.0.11](https://hub.docker.com/_/php/) and [docker-hub/jenkinsci/jnlp-slave](https://hub.docker.com/r/jenkinsci/jnlp-slave/).
 
-*documentation isn't fully done yet, updates will fly into within the next days*
-
 ## License-Term
 
-Copyright (c) 2016 Patrick Paechnatz <patrick.paechnatz@gmail.com>
+Copyright (c) 2018 Yaroslav Sklabinskyi <jokersoft.net@gmail.com>
                                                                            
 Permission is hereby granted,  free of charge,  to any  person obtaining a 
 copy of this software and associated documentation files (the "Software"),

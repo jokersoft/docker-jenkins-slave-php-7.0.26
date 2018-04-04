@@ -1,11 +1,11 @@
 #
 # -- SODEF --
 #
-# BUILD    : DF/[SERVICE][JENKINS][SLAVE/PHP]
+# BUILD    : JOKERSOFT/[SERVICE][JENKINS][SLAVE/PHP]
 # OS/CORE  : debian:8
 # SERVICES : jenkins jnkp slave 2.7.4
 #
-# VERSION 0.9.6
+# VERSION 0.0.1
 #
 
 FROM jenkinsci/jnlp-slave
@@ -31,7 +31,7 @@ ENV DEBIAN_FRONTEND     noninteractive
 ENV GPG_KEYS 1A4E8B7277C42E53DBA9C7B9BCAA30EA9C0D5763
 ENV PHP_VERSION 7.0.26
 ENV PHP_FILENAME php-7.0.26.tar.xz
-ENV PHP_SHA256 bb1d6e19d52b6d479d531078d881a2c83bb841d370e767ea203b530b33d2f715
+ENV PHP_SHA256 ed5cbb4bbb0ddef8985f100bba2e94002ad22a230b5da2dccfe148915df5f199
 
 ENV PHP_INI_DIR /usr/local/etc/php
 
@@ -131,7 +131,7 @@ RUN chmod +x /usr/local/bin/docker-php-ext-*
 
 # x-layer 8: install extension package dependencies and additional extensions for this slave node
 RUN set -e \
-    && apt-get update -qq && apt-get install -y --no-install-recommends apt-utils xz-utils libfreetype6-dev libjpeg62-turbo libmcrypt-dev libpng12-dev libssl-dev libcurl4-openssl-dev libsasl2-dev libicu-dev libjpeg-dev
+    && apt-get update -qq && apt-get install -y --no-install-recommends apt-utils xz-utils libfreetype6-dev libjpeg62-turbo libmcrypt-dev libpng-dev libssl-dev libcurl4-openssl-dev libsasl2-dev libicu-dev libjpeg-dev
 
 RUN set -e \
     && docker-php-ext-install iconv mcrypt intl mbstring ctype zip exif pdo pdo_mysql \
@@ -140,7 +140,7 @@ RUN set -e \
 
 # x-layer 9: install composer globaly
 RUN php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');" \
-    && php -r "if (hash_file('SHA384', 'composer-setup.php') === 'e115a8dc7871f15d853148a7fbac7da27d6c0030b848d9b3dc09e2a0388afed865e6a3d6b3c0fad45c48e2b5fc1196ae') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
+    && php -r "if (hash_file('SHA384', 'composer-setup.php') === '544e09ee996cdf60ece3804abc52599c22b1f40f4323403c44d44fdfdd586475ca9813a858088ffbc1f233e9b180f061') { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;" \
     && php composer-setup.php --install-dir=/usr/local/bin --filename=composer \
     && php -r "unlink('composer-setup.php');"
 
